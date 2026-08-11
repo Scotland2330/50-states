@@ -8,13 +8,16 @@ A gamified, self-contained web app for learning all fifty U.S. states — built 
 
 | Mode | Learning style | What you do |
 | --- | --- | --- |
+| 📅 **Daily Challenge** | Habit · Streaks | Five questions a day, the same for everyone (seeded by the date). Play every day to grow your streak. |
 | 🗺️ **Map Room** | Visual · Kinesthetic | Explore any state for a field-guide card, or take the Challenge: a name flashes and you find it on a real US map. |
-| ✍️ **Quiz Arena** | Test · Compete | 10-question rounds on capitals, nicknames, regions, and state *shapes*. Build a streak, chase a perfect score. |
+| ✍️ **Quiz Arena** | Test · Compete | 10-question rounds on capitals, nicknames, regions, and state *shapes* — plus **Beat the Clock**, a 60-second rapid-fire run. |
 | 🃏 **Flashcards** | Visual · Reading | Flip through shape, capital, nickname, and a memorable fact for all 50. Filter by region, mark what you know. |
 | 🎵 **Rhyme Radio** | Auditory | Five regional rhymes read aloud (browser text-to-speech) so the states stick like a song lyric. |
-| 🏅 **Badges** | Motivation | Ten unlockable badges tracking streaks, states located, capitals mastered, and more. |
+| 🏅 **Badges** | Motivation | Twelve unlockable badges tracking streaks, states located, capitals mastered, speed runs, daily streaks, and more. |
 
-Points, streaks, badges, and progress all save automatically in the browser (via `localStorage`).
+**Capital jingles** — every state–capital pair has a short mnemonic (e.g. *"You-tah shakes the salt in Salt Lake City"*) shown on flashcards, in the map's field-guide card, and after capital quiz questions, with a 🔊 tap-to-hear button.
+
+Points, streaks, badges, best runs, and daily streaks all save automatically in the browser (via `localStorage`).
 
 ## Running it
 
