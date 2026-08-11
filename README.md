@@ -9,7 +9,7 @@ A gamified, self-contained web app for learning all fifty U.S. states — built 
 | Mode | Learning style | What you do |
 | --- | --- | --- |
 | 📅 **Daily Challenge** | Habit · Streaks | Five questions a day, the same for everyone (seeded by the date). Play every day to grow your streak. |
-| 🗺️ **Map Room** | Visual · Kinesthetic | Explore any state for a field-guide card, or take the Challenge: a name flashes and you find it on a real US map. |
+| 🗺️ **Map Room** | Visual · Kinesthetic | Three sub-modes on a real US map: **Explore** (field-guide cards), **Find It** (a name flashes, you locate it), and **Borders** (tap every state that neighbours the target). |
 | ✍️ **Quiz Arena** | Test · Compete | 10-question rounds on capitals, nicknames, regions, and state *shapes* — plus **Beat the Clock**, a 60-second rapid-fire run. |
 | 🃏 **Flashcards** | Visual · Reading | Flip through shape, capital, nickname, and a memorable fact for all 50. Filter by region, mark what you know. |
 | 🎵 **Rhyme Radio** | Auditory | Five regional rhymes read aloud (browser text-to-speech) so the states stick like a song lyric. |
