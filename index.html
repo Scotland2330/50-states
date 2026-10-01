@@ -8,10 +8,10 @@
 <style>
   :root{
     --paper:#f6f7f9; --surface:#ffffff; --surface-2:#eef0f4;
-    --ink:#1a1c24; --ink-soft:#555a68; --line:#e5e7ec;
+    --ink:#1a1c24; --ink-soft:#4b5162; --line:#e5e7ec;
     --brand:#6c5ce7; --brand-deep:#5a48d6; --on-brand:#ffffff;
     --pine:#0aa06f; --pine-deep:#0a8f63;
-    --amber:#f9781d; --lake:#0ea5c4; --clay:#ef2f6b; --gold:#e6a012;
+    --amber:#f9781d; --lake:#0ea5c4; --clay:#ef2f6b; --gold:#e6a012; --pink:#e23e8f;
     --state-fill:#d0d6e3; --state-hover:#9a8bf2; --state-stroke:#737b97;
     --shadow:0 1px 2px rgba(30,25,70,.06),0 12px 32px rgba(30,25,70,.10);
     --r:14px; --r-sm:9px;
@@ -22,20 +22,20 @@
   @media (prefers-color-scheme:dark){
     :root:not([data-theme="light"]){
       --paper:#111318; --surface:#1b1d24; --surface-2:#262933;
-      --ink:#eceef4; --ink-soft:#a8adbc; --line:#323640;
+      --ink:#eceef4; --ink-soft:#b4b9c8; --line:#323640;
       --brand:#8b7bff; --brand-deep:#7a68f5; --on-brand:#16172c;
       --pine:#1fca90; --pine-deep:#16b07a;
-      --amber:#ffa23e; --lake:#37c8e6; --clay:#ff5c85; --gold:#ffc95e;
+      --amber:#ffa23e; --lake:#37c8e6; --clay:#ff5c85; --gold:#ffc95e; --pink:#f472b6;
       --state-fill:#2e313d; --state-hover:#6d5ff2; --state-stroke:#565c6e;
       --shadow:0 1px 2px rgba(0,0,0,.35),0 14px 36px rgba(0,0,0,.5);
     }
   }
   :root[data-theme="dark"]{
     --paper:#111318; --surface:#1b1d24; --surface-2:#262933;
-    --ink:#eceef4; --ink-soft:#a8adbc; --line:#323640;
+    --ink:#eceef4; --ink-soft:#b4b9c8; --line:#323640;
     --brand:#8b7bff; --brand-deep:#7a68f5; --on-brand:#16172c;
     --pine:#1fca90; --pine-deep:#16b07a;
-    --amber:#ffa23e; --lake:#37c8e6; --clay:#ff5c85; --gold:#ffc95e;
+    --amber:#ffa23e; --lake:#37c8e6; --clay:#ff5c85; --gold:#ffc95e; --pink:#f472b6;
     --state-fill:#2e313d; --state-hover:#6d5ff2; --state-stroke:#565c6e;
     --shadow:0 1px 2px rgba(0,0,0,.35),0 14px 36px rgba(0,0,0,.5);
   }
@@ -70,6 +70,9 @@
   .stat .v{font-family:var(--mono);font-weight:600;font-size:1rem;line-height:1}
   .stat .l{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:3px}
   .stat.pts .v{color:var(--amber)} .stat.strk .v{color:var(--clay)} .stat.bdg .v{color:var(--gold)}
+  .stat.pts{background:color-mix(in srgb,var(--amber) 12%,var(--surface));border-color:color-mix(in srgb,var(--amber) 28%,var(--line))}
+  .stat.strk{background:color-mix(in srgb,var(--clay) 12%,var(--surface));border-color:color-mix(in srgb,var(--clay) 28%,var(--line))}
+  .stat.bdg{background:color-mix(in srgb,var(--gold) 14%,var(--surface));border-color:color-mix(in srgb,var(--gold) 30%,var(--line))}
   .iconbtn{width:38px;height:38px;display:grid;place-items:center;border-radius:var(--r-sm);background:var(--surface);border:1px solid var(--line);color:var(--ink);font-size:1.05rem;box-shadow:var(--shadow)}
   .iconbtn:hover{border-color:var(--pine)}
 
@@ -90,22 +93,22 @@
   /* ---------- Home ---------- */
   .hero{text-align:center;padding:14px 0 30px;position:relative}
   .hero h1{font-size:clamp(2.1rem,6vw,3.6rem);letter-spacing:-.01em}
-  .hero h1 .amp{color:var(--amber)}
+  .hero h1 .amp{color:var(--pink);background:linear-gradient(100deg,var(--brand),var(--pink) 55%,var(--amber));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
   .hero p.sub{max-width:52ch;margin:14px auto 0;font-size:clamp(1rem,2.2vw,1.15rem);color:var(--ink-soft)}
   .progress-band{max-width:620px;margin:26px auto 0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 20px;box-shadow:var(--shadow)}
   .pb-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:.9rem}
   .pb-top b{font-family:var(--mono);font-size:1.15rem}
   .bar{height:10px;border-radius:99px;background:var(--surface-2);border:1px solid var(--line);overflow:hidden;margin-top:10px}
-  .bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pine),var(--amber));transition:width .6s cubic-bezier(.2,.8,.2,1)}
+  .bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--pink),var(--amber));transition:width .6s cubic-bezier(.2,.8,.2,1)}
 
   .modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:34px}
-  .mode{text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px;box-shadow:var(--shadow);position:relative;overflow:hidden;transition:transform .18s ease,border-color .18s ease}
-  .mode:hover{transform:translateY(-3px);border-color:var(--brand)}
-  .mode .badge-ic{font-size:1.9rem;display:block}
+  .mode{text-align:left;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--accent,var(--brand));border-radius:var(--r);padding:20px 22px 22px;box-shadow:var(--shadow);position:relative;overflow:hidden;transition:transform .18s ease,box-shadow .18s ease}
+  .mode:hover{transform:translateY(-3px);box-shadow:0 16px 34px color-mix(in srgb,var(--accent,var(--brand)) 24%,transparent)}
+  .mode .badge-ic{font-size:1.6rem;display:inline-grid;place-items:center;width:52px;height:52px;border-radius:14px;background:color-mix(in srgb,var(--accent,var(--brand)) 15%,var(--surface));border:1px solid color-mix(in srgb,var(--accent,var(--brand)) 34%,var(--line))}
   .mode h3{font-size:1.3rem;margin:12px 0 4px}
-  .mode .style{font-family:var(--mono);font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--amber);font-weight:600}
+  .mode .style{font-family:var(--mono);font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent,var(--amber));font-weight:700;margin-top:12px}
   .mode p{margin:10px 0 0;font-size:.92rem;color:var(--ink-soft)}
-  .mode .go{margin-top:16px;display:inline-flex;align-items:center;gap:6px;font-weight:600;color:var(--brand);font-size:.9rem}
+  .mode .go{margin-top:16px;display:inline-flex;align-items:center;gap:6px;font-weight:700;color:var(--accent,var(--brand));font-size:.9rem}
   .mode:hover .go{gap:10px}
   .mode .go{transition:gap .2s ease}
 
@@ -198,9 +201,10 @@
   .q-result .score{font-family:var(--mono);font-size:3.2rem;font-weight:700;color:var(--amber);line-height:1}
   .q-result .rmsg{font-family:var(--serif);font-size:1.5rem;margin:6px 0 2px}
   .cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:6px}
-  .cat{text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow);transition:transform .16s ease,border-color .16s ease}
-  .cat:hover{transform:translateY(-2px);border-color:var(--pine)}
-  .cat .ic{font-size:1.5rem} .cat h3{font-size:1.15rem;margin:8px 0 3px} .cat p{margin:0;font-size:.82rem;color:var(--ink-soft)}
+  .cat{text-align:left;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--accent,var(--brand));border-radius:var(--r);padding:16px 18px 18px;box-shadow:var(--shadow);transition:transform .16s ease,box-shadow .16s ease}
+  .cat{text-align:left;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--accent,var(--brand));border-radius:var(--r);padding:16px 18px 18px;box-shadow:var(--shadow);transition:transform .16s ease,box-shadow .16s ease}
+  .cat:hover{transform:translateY(-2px);box-shadow:0 12px 28px color-mix(in srgb,var(--accent,var(--brand)) 22%,transparent)}
+  .cat .ic{font-size:1.3rem;display:inline-grid;place-items:center;width:44px;height:44px;border-radius:12px;background:color-mix(in srgb,var(--accent,var(--brand)) 15%,var(--surface));border:1px solid color-mix(in srgb,var(--accent,var(--brand)) 32%,var(--line))} .cat h3{font-size:1.15rem;margin:10px 0 3px} .cat p{margin:0;font-size:.82rem;color:var(--ink-soft)}
   /* featured beat-the-clock tile */
   .featured{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:16px;text-align:left;background:linear-gradient(100deg,color-mix(in srgb,var(--amber) 16%,var(--surface)),var(--surface));border:1.5px solid var(--amber);border-radius:var(--r);padding:20px 22px;box-shadow:var(--shadow);transition:transform .16s ease}
   .featured:hover{transform:translateY(-2px)}
@@ -618,16 +622,17 @@
 
   /* ================= HOME ================= */
   var MODE_INFO = [
-    {view:"daily", ic:"📅", title:"Daily Challenge", style:"New every day", desc:"Five fresh questions each day — the same for everyone. Play daily to build a streak."},
-    {view:"map", ic:"🗺️", title:"Map Room", style:"See it · Touch it", desc:"Explore states, race to find them on a real US map, or tap every neighbour in the Borders puzzle."},
-    {view:"quiz", ic:"✍️", title:"Quiz Arena", style:"Test · Compete", desc:"Timed multiple-choice on capitals, nicknames, regions and shapes. Build a streak, chase a perfect round."},
-    {view:"cards", ic:"🃏", title:"Flashcards", style:"Read · Review", desc:"Flip through shape, capital, nickname and a memorable fact for all fifty. Mark the ones you know."},
-    {view:"rhymes", ic:"🎵", title:"Rhyme Radio", style:"Hear · Remember", desc:"Five regional rhymes read aloud, so the states stick in your head like a song lyric."}
+    {view:"daily", ic:"📅", title:"Daily Challenge", style:"New every day", accent:"var(--brand)", desc:"Five fresh questions each day — the same for everyone. Play daily to build a streak."},
+    {view:"map", ic:"🗺️", title:"Map Room", style:"See it · Touch it", accent:"var(--lake)", desc:"Explore states, race to find them on a real US map, or tap every neighbour in the Borders puzzle."},
+    {view:"quiz", ic:"✍️", title:"Quiz Arena", style:"Test · Compete", accent:"var(--amber)", desc:"Timed multiple-choice on capitals, nicknames, regions and shapes. Build a streak, chase a perfect round."},
+    {view:"cards", ic:"🃏", title:"Flashcards", style:"Read · Review", accent:"var(--pink)", desc:"Flip through shape, capital, nickname and a memorable fact for all fifty. Mark the ones you know."},
+    {view:"rhymes", ic:"🎵", title:"Rhyme Radio", style:"Hear · Remember", accent:"var(--pine)", desc:"Five regional rhymes read aloud, so the states stick in your head like a song lyric."}
   ];
   function renderHome(){
     var box = $("#modeCards"); box.innerHTML="";
     MODE_INFO.forEach(function(m){
       var c = el("button","mode");
+      c.style.setProperty("--accent", m.accent);
       c.innerHTML = '<span class="badge-ic">'+m.ic+'</span><div class="style">'+m.style+'</div><h3>'+m.title+'</h3><p>'+m.desc+'</p><span class="go">Start '+m.title+' →</span>';
       c.addEventListener("click", function(){ go(m.view); });
       box.appendChild(c);
@@ -829,11 +834,11 @@
   /* ================= QUIZ ================= */
   var quiz = null;
   var QUIZ_CATS = [
-    {id:"capitals", ic:"🏛️", name:"Capitals", desc:"Match states to their capital cities."},
-    {id:"nicknames", ic:"🏷️", name:"Nicknames", desc:"Yellowhammer? Buckeye? Name that state."},
-    {id:"regions", ic:"🧭", name:"Regions", desc:"Place each state in its part of the country."},
-    {id:"shapes", ic:"📐", name:"Shapes", desc:"Identify the state from its outline alone."},
-    {id:"mixed", ic:"🎲", name:"Mixed Bag", desc:"A bit of everything — the real test."}
+    {id:"capitals", ic:"🏛️", name:"Capitals", accent:"var(--brand)", desc:"Match states to their capital cities."},
+    {id:"nicknames", ic:"🏷️", name:"Nicknames", accent:"var(--lake)", desc:"Yellowhammer? Buckeye? Name that state."},
+    {id:"regions", ic:"🧭", name:"Regions", accent:"var(--pine)", desc:"Place each state in its part of the country."},
+    {id:"shapes", ic:"📐", name:"Shapes", accent:"var(--pink)", desc:"Identify the state from its outline alone."},
+    {id:"mixed", ic:"🎲", name:"Mixed Bag", accent:"var(--amber)", desc:"A bit of everything — the real test."}
   ];
   function renderQuizMenu(){
     var p = $("#quizPanel");
@@ -845,6 +850,7 @@
     g.appendChild(feat);
     QUIZ_CATS.forEach(function(c){
       var b = el("button","cat");
+      b.style.setProperty("--accent", c.accent);
       b.innerHTML = '<div class="ic">'+c.ic+'</div><h3>'+c.name+'</h3><p>'+c.desc+'</p>';
       b.addEventListener("click", function(){ startQuiz(c.id); });
       g.appendChild(b);
